@@ -1,0 +1,22 @@
+### Why use both LIME and SHAP?
+
+Using both methods provides a more complete understanding of the model:
+
+- LIME helps with quick, human-friendly explanations.
+- SHAP provides deeper and more reliable feature attribution.
+
+Together, they improve trust and interpretability of the model.
+
+
+| Feature | LIME | SHAP |
+|--------|------|------|
+| Full Name | Local Interpretable Model-agnostic Explanations | SHapley Additive exPlanations |
+| Main Idea | Approximates model locally by perturbing input | Uses game theory (Shapley values) to fairly distribute feature contributions |
+| Type of Explanation | Local only | Local + Global |
+| Stability | Can vary between runs (less stable) | Consistent and stable |
+| Speed | Faster | Slower (more computationally expensive) |
+| Theoretical Basis | Linear approximation | Solid mathematical foundation (game theory) |
+| Best For | Quick, intuitive explanations | Reliable and consistent explanations |
+| Works With | Any model (model-agnostic) | Any model (model-agnostic, but optimized methods exist) |
+| Output | Feature importance for one prediction | Feature contribution values (local + global insights) |
+| In This Project | Explains why a message is spam/ham locally | Shows both per-message and overall feature importance |

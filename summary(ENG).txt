@@ -1,0 +1,60 @@
+# Explainable Spam Detection (LIME + SHAP)
+
+## Overview
+
+This project builds a machine learning model to classify SMS messages as spam or ham, and applies Explainable AI (XAI) techniques to interpret the model’s decisions.
+
+It uses:
+- TF-IDF for text vectorization
+- Logistic Regression for classification
+- LIME and SHAP for model explanation
+
+---
+
+## Goal
+
+The main goal is not only to predict spam messages, but also to understand **why** the model makes a certain prediction.
+
+---
+
+## Methods
+
+### Machine Learning
+- TF-IDF (text feature extraction)
+- Logistic Regression (classification model)
+
+### Explainable AI
+- **LIME**: Explains individual predictions by perturbing input text
+- **SHAP**: Uses game theory to measure feature importance (local + global)
+
+---
+
+## Key Insight
+
+- Words like *“free”*, *“win”*, and *“prize”* strongly influence spam predictions
+- LIME provides fast and intuitive explanations
+- SHAP provides more stable and theoretically grounded explanations
+
+---
+
+## Workflow
+
+Text → Preprocessing → TF-IDF → Model Training → Prediction → LIME + SHAP → Visualization
+
+---
+
+## Outcome
+
+- A working spam classification model
+- Local explanations for individual predictions (LIME)
+- Global and local feature importance analysis (SHAP)
+- Improved interpretability and trust in the model
+
+---
+
+## What I Learned
+
+- End-to-end NLP pipeline development
+- Feature extraction using TF-IDF
+- Model interpretability using LIME and SHAP
+- Importance of Explainable AI in real-world ML systems

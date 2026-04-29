@@ -110,6 +110,8 @@ plt.xlabel("Importance")
 plt.axvline(0, color='black')
 plt.show()
 
+
+
 """**SHAP**
 
 We used SHAP LinearExplainer because the model is based on Logistic Regression with TF-IDF features.
@@ -138,4 +140,42 @@ plt.barh(
     mean_shap[top_idx]
 )
 plt.title("SHAP Global Feature Importance")
+plt.show()
+
+
+
+"""To improve interpretability, SHAP values were mapped back to TF-IDF feature names (words), allowing us to clearly identify which words contribute most to spam or ham classification."""
+
+feature_names = vectorizer.get_feature_names_out()
+
+shap_values = explainer(X_test_vec)
+
+import pandas as pd
+import numpy as np
+
+values = shap_values.values[0]
+
+df_shap = pd.DataFrame({
+    "word": feature_names,
+    "shap_value": values
+})
+
+# keep only important words
+df_shap = df_shap[df_shap["shap_value"] != 0]
+
+# sort by importance
+df_shap = df_shap.sort_values(by="shap_value", key=np.abs, ascending=False)
+
+print(df_shap.head(10))
+
+top = df_shap.head(10)
+
+print(top)
+
+import matplotlib.pyplot as plt
+
+plt.figure(figsize=(8,5))
+plt.barh(top["word"], top["shap_value"])
+plt.axvline(0, color="black")
+plt.title("SHAP Explanation (Top Words)")
 plt.show()

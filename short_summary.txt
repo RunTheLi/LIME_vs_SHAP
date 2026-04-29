@@ -1,0 +1,5 @@
+### Summary
+
+- LIME is easier and faster, but can be less stable.
+- SHAP is more mathematically rigorous and provides more consistent explanations.
+- In this project, both methods help explain why the model classifies messages as spam or not spam, but from different perspectives.
